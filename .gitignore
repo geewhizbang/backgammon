@@ -1,0 +1,29 @@
+.DS_Store
+node_modules
+/dist
+resources
+
+gwbApi/obj
+gwbApi/obj/Debug
+gwbApi/bin
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+gwbApi/obj/Debug/netcoreapp3.1/gwbApi.assets.cache
+gwbApi/obj/Debug/netcoreapp3.1/gwbApi.csprojAssemblyReference.cache

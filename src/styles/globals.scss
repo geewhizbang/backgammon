@@ -1,0 +1,721 @@
+@import "./colors.scss";
+
+#app {
+  font-family: 'Open Sans';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: left;  
+}
+
+input, div, span, label, p, title, h1, h2, ul, li, dl, dd {
+  font-family: 'Open Sans' sans-serif;
+  color: $text;
+  box-sizing: border-box;
+}
+
+label {
+  font-size: toVw($vw, 13px);
+  line-height: toVw($vw, 15px);
+}
+
+p {
+  font-size: toVw($vw, 15px);
+  line-height: toVw($vw, 18px);
+  padding: 0;
+  margin: 0 0 toVw($vw, 8px) 0;
+}
+
+input[type=text] {
+  font-size: toVw($vw, 14px);
+  line-height: toVw($vw, 17px);
+  padding: toVw($vw, 4px);
+  outline-color: $inputBorder; 
+  vertical-align: top;
+  margin: 0;
+}
+
+* { 
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+}
+
+label {
+  color: $text;
+  margin-bottom: toVw($vw, 5px);
+}
+
+.red {
+  color: $red;
+}
+
+.radioGroup {
+  > label {
+    white-space: no-wrap;
+    display: inline-block;
+    vertical-align: top;
+    font-size: toVw($vw, 14px);
+    line-height: toVw($vw, 16px);
+    height: toVw($vw, 17px);
+    padding: 0;
+    margin: 0 toVw($vw, 16px) toVw($vw, 4px) toVw($vw, 1.2px);
+
+    > input[type=radio] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      display: inline-block;
+      vertical-align: top;
+      border-radius: 50%;
+      width: toVw($vw, 16px);
+      height:toVw($vw, 16px);
+      border: toVw($vw,2px) solid #747474;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      top: toVw($vw, 2px);
+      background: white;
+      vertical-align: top;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        top: 12.5%;
+        left: 12.5%;
+        right: 12.5%;
+        bottom: 12.5%;
+        width: auto;
+        height: auto;
+        background: rgb(80, 95, 226);
+        opacity: 0;
+        border-radius: 50%;
+        transition: 0.2s opacity linear;
+      }
+
+      &:checked {
+        &::after {
+          opacity: 1 !important;
+          background: rgb(80, 95, 226) !important;
+        }
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+      
+      > input[type=radio]::after {
+        opacity: 1;
+        background: #cfd1e2;
+      }
+       
+    }
+
+    > span {
+      display: inline-block;
+      vertical-align: top;
+      position: relative;
+      vertical-align: top;
+      top: toVw($vw, 1px);
+      padding: 0;
+      margin: 0;
+      padding-left: toVw($vw, 5px);
+    }
+
+  }
+}
+
+.row {
+  width: 100%;
+  overflow: hidden;
+  height: auto;
+
+  > *:not(:last-child) {
+    margin-right: toVw($vw, 16px);
+  }
+
+  > .checkboxGroup {
+    display: inline-block;
+  }
+}
+
+input, button {
+  vertical-align: top;
+  height: toVw($vw, $inputHeight);
+
+  &:not(:last-child) {
+    margin-right: toVw($vw, 10px);
+  }
+}
+
+input[type="checkbox"] {
+  width: toVw($vw, 14px);
+  height: toVw($vw, 14px);
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  font-size: toVw($vw, 14px);
+  line-height: toVw($vw, 14px);
+  
+  &::before {
+    position: relative;
+    display: block;
+    width: toVw($vw, 14px);
+    height: toVw($vw, 14px);
+    border: 1px solid #808080;
+    content: "";
+    background: #FFF;
+    border-radius: toVw($vw, 2px);
+    transition: 0.2s all linear;
+  }
+
+  &::after {
+    position: relative;
+    display: block;
+    width: toVw($vw, 15px);
+    height: toVw($vw, 15px);
+    content: "\2714";
+    font-size: toVw($vw, 13px);
+    line-height: toVw($vw, 13px);
+    left: toVw($vw, 3px);
+    top: toVw($vw, -15px);
+    color: #FFF;
+    opacity: 0;
+    background: transparent;
+    transition: 0.2s all linear;
+  }
+
+  &:checked {
+    
+    &::before {
+      background: $blue;
+      border-color: $blue;
+    }
+    
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
+*:hover > span.hoverParent > input[type="checkbox"],
+span:hover > input[type="checkbox"] {
+  &:not(:checked)::before {
+    background: $buttonHoverColor;
+  }
+}
+
+button {
+  padding: toVw($vw, 4.5px) toVw($vw, 7px);
+  margin: 0 toVw($vw, 8px) 0 0;
+  background: $buttonBackground;
+  border-radius: toVw($vw, 3px);
+  vertical-align: top;
+  border: none;
+  color: white;
+  outline-style: none;
+  display: inline-block;
+  font-weight: 500;
+  font-size: toVw($vw, 14px);
+  line-height: toVw($vw, 16px);
+  vertical-align: top;
+
+  &:hover:not(:disabled) {
+    color: $buttonHoverColor;
+    background: $buttonHoverBackground;
+    cursor: pointer;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  &.small {
+    font-size: toVw($vw, 11px);
+    line-height: toVw($vw, 13px);
+    margin: toVw($vw, 2px) 0 0 toVw($vw, 4px);
+    padding: toVw($vw, 3px) toVw($vw, 8px);
+    border-radius: toVw($vw, 8px);
+    height: toVw($vw, $inputHeight * 0.7);
+  }
+
+}
+
+button.iconButton {
+  padding: 0;
+  background: transparent;
+  border: none;
+  outline-style: none;
+  width: toVw($vw, 18px);
+  height: toVw($vw, 18px);
+  margin: 0 0 0 toVw($vw, 4px);
+  padding: 0; //!include
+  display: inline-block;
+  vertical-align: top;
+}
+
+input[type="checkbox"]:not(:checked):hover,
+label:hover > input[type="checkbox"]:not(:checked):hover, 
+span:hover >input[type="checkbox"]:not(:checked):hover {
+  cursor: pointer;
+  &::before {
+    background: #c2dcee;
+  }
+}
+
+
+b {
+  font-weight: 600;
+}
+
+.help {
+  width: toVw($vw, 240px);
+  padding: toVw($vw, 5px) toVw($vw, 24px) toVw($vw, 10px) toVw($vw, 14px);
+  overflow: hidden;
+  margin: 0 !important;
+  height: auto;
+  background-color: $topTooltipBG;
+  max-height: 70vh; //!include;
+
+  
+  > p.title, h2 {
+    font-size: toVw($vw, 15px);
+    line-height: toVw($vw, 17px);
+    font-weight: 700;
+    margin: toVw($vw, 5px) 0 toVw($vw, 6px) 0;
+    padding: 0;
+    color: $navy;
+  }
+
+  > p { 
+    font-size: toVw($vw, 14px);
+    line-height: toVw($vw, 17px);
+    margin: 0 0 toVw($vw, 6px) toVw($vw, 2px);
+    padding: 0;
+    color: $navy;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    > b {
+      color: $navy;
+      font-weight: 600;
+    }
+
+    &:first-child {
+      margin-top: toVw($vw, 8px);
+    }
+  }
+}
+
+p.outdent {
+  margin-left: toVw($vw, 12px);
+  text-indent: toVw($vw, -10px);
+}
+
+.flexHorz {
+  display: flex;
+  flex-flow: row;
+  padding: 0;
+
+  > div.expandWidth {
+    flex-grow: 1;  
+    width: auto;
+  }
+
+}
+
+.flexVert {
+  display: flex;
+  flex-flow: column;
+  padding: 0;
+
+  > .header, > .footer {
+    overflow: hidden;
+    height: auto;
+    width: 100%;
+    display: block;
+    flex: none;
+
+    * { flex: none; }
+    
+    > h2 {
+      font-size: toVw($vw, 14px);
+      line-height: toVw($vw, 16px);
+      height:  toVw($vw, 16px);
+      color: $navy;
+      padding: 0;
+      vertical-align: top;
+      margin: 0 0 toVw($vw, 9px) 0;
+      flex: none;
+    }
+    
+    > div {
+      flex: none;
+    }
+  }
+
+  > .header {
+    padding: 0;
+    padding-bottom: 14px;
+
+    > .fullwidth {
+      margin-top: toVw($vw, 8px);
+    }
+  }
+
+  > div, .expandHeight {
+    flex: 1;  
+    overflow: hidden; 
+    padding: 0;
+    margin: 0;  
+  }
+
+  > .footer {
+    padding: 0;
+    padding-top: toVw($vw, 12px);
+  }
+}
+
+.right {
+  float: right;
+  display: block;
+}
+
+.modalBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(33,44,55, 0.1);
+}
+
+.noFill {
+  background: transparent !important;
+}
+
+.floatChildren {
+  > * {
+    float: left;
+  }
+}
+
+.fullWidth {
+  width: 100%;
+  overflow: hidden;
+  height: auto;
+}
+
+.width95 {
+  width: toVw($vw, 95px) !important;
+}
+
+.width100 {
+  width: toVw($vw, 95px) !important;
+}
+
+.width110 {
+  width: toVw($vw, 95px) !important;
+}
+
+
+.width200 {
+  width: toVw($vw, 200px) !important;
+}
+
+.width250 {
+  width: toVw($vw, 250px) !important;
+}
+
+.width270 {
+  width: toVw($vw, 270px) !important;
+}
+
+.width300 {
+  width: toVw($vw, 300px) !important;
+}
+
+.width330 {
+  width: toVw($vw, 330px) !important;
+}
+
+
+.width350 {
+  width: toVw($vw, 350px) !important;
+}
+
+.width400 {
+  width: toVw($vw, 400px) !important;
+}
+
+.width450 {
+  width: toVw($vw, 450px) !important;
+}
+
+.width500 {
+  width: toVw($vw, 500px) !important;
+}
+
+.width600 {
+  width: toVw($vw, 600px) !important;
+}
+
+.width650 {
+  width: toVw($vw, 650px) !important;
+}
+
+.width700 {
+  width: toVw($vw, 700px) !important;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: toVw($vw, 12px);
+  height: toVw($vw, 12px);
+}
+
+.scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: $scrollbarThumbBG $scrollbarBG;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: $scrollbarBG;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: $scrollbarThumbBG;
+  border-radius: toVw($vw, 6px);
+  border: 3px solid $scrollbarBG;
+}
+
+@keyframes spinner {
+  0% {
+    transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
+}
+
+> .pageBody {
+  height: calc(100% - #{$pageHeaderHeight});
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  background: $subpanelBackground;
+  position: relative;
+
+  &::before {
+    height: 100%;
+    content: '';
+    display: block;
+    width: toVw($vw, $pageHeaderLeftBarWidth);
+    background: $pageHeaderBackground;
+  }
+}
+
+.control {
+  height: toVw($vw, 65px);
+  width: auto;
+  overflow: hidden;
+  float: left;
+  margin-right: toVw($vw, $boxSeparator);
+  padding: toVw($vw, 6px);
+
+  > label {
+    font-size: toVw($vw, 14px);
+    line-height: toVw($vw, 17px);
+    height: toVw($vw, 20px);
+    overflow: hidden;
+    width: auto;
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  > div {
+    display: block;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: auto;
+    height: toVw($vw, 33px);
+    line-height: toVw($vw, 18px);
+        
+    > input[type=text] {
+      display: inline-block;
+      margin: 0 toVw($vw, 10px) 0 0;
+      position: static;
+      vertical-align: top;
+    }
+
+    > button {
+      display: inline-block;
+      margin: 0 toVw($vw, 10px) 0 0;
+      position: static;
+      vertical-align: top;
+    }
+
+    > span {
+      display: inline-block;
+      height: toVw($vw, 24px);
+    }
+  }
+}
+
+.appBody {
+  position: fixed;
+  top: calc(#{toVw($vw, $headerHeight)} - 1px);
+  bottom: toVw($vw, $footerHeight);
+  left: 0;
+  right: 0;
+  padding: 0;
+  background: $mainPanelBackground;
+    
+  .page {
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+    overflow-x: auto;
+
+    > .pageBody {
+      height: calc(100% - #{$pageHeaderHeight});
+      width: 100%;
+      overflow: hidden;
+      padding: 0;
+      margin: 0;
+      background: $subpanelBackground;
+      position: relative;
+  
+      &::before {
+        height: 100%;
+        content: '';
+        display: block;
+        width: toVw($vw, $pageHeaderLeftBarWidth);
+        background: $pageHeaderBackground;
+      }
+
+      .pageContainer, .empty {
+
+        padding: toVw($vw, 24px);
+        overflow-x: auto;
+        overflow-y: hidden;
+        left: toVw($vw, $pageHeaderLeftBarWidth);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        white-space: nowrap;
+      }
+
+      .empty {
+
+        > p {
+          display: block;
+          width: toVw($vw, 350px);
+          text-align: center;
+          margin-top: toVw($vw, 50px);
+          > span.iconWait {
+            display: inline-block;
+            position: relative;
+            top: toVw($vw, 10px);
+            margin-right: toVw($vw, 8px);
+          }
+          > span {
+            display: inline-block;
+          }
+        }
+      }
+
+    }
+
+    > div.header {
+      height: toVw($vw, $pageHeaderHeight);
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      background: $pageHeaderBackground;
+      overflow: hidden;
+
+      > h1 {
+        font-size: toVw($vw, 22px);
+        line-height: toVW($vw, 28px);
+        margin: 0;
+        padding: 0;
+        font-weight: 700;
+        padding: toVw($vw, $padding);
+        padding-top: toVw($vw, 20px);
+        display: block;
+        float: left;
+        color: $navy;
+        margin-right: toVw($vw, 80px);
+      }
+
+      > div.float {
+        height: toVw($vw, $inputHeight);
+        margin-top: toVw($vw, ($pageHeaderHeight - $inputHeight) / 2);
+
+        > span {
+          display: inline-block;
+          position: relative;
+          height: toVw($vw, $largeIcon);
+          width: toVw($vw, $largeIcon);
+          margin-right: toVw($vw, 3px);
+
+          + span {
+            margin-left: toVw($vw, 12px);
+          }
+        }
+
+        > * {
+          position: block;
+          float: left;
+          height: 100%;
+        }
+        > .messagePane {
+          margin-top: 0;
+          margin-left: toVw($vw, 10px);
+          background: $subpanelBackground;
+          padding: toVw($vw, 2px) toVw($vw, 8px);
+
+          > p {
+            position: relative;
+            display: inline-block;
+            font-size: toVw($vw, 15px);
+            line-height: toVw($vw, 17px);
+            top: toVw($vw, -2px);
+            margin-right: toVw($vw, 2px);
+          }
+
+          > span {
+            display: inline-block;
+            position: relative;
+            top: toVw($vw, 3px);
+            left: toVw($vw, -1px);
+            height: toVw($vw, $inputHeight);
+            width: toVw($vw, $inputHeight);
+            
+            margin-right: toVw($vw, 3px);
+           
+          }
+        }
+      }
+    }
+  }
+}
+
+.vh50 {
+  max-height: 50vh; //!include
+}
+
+.vh60 {
+  max-height: 60vh; //!include
+}
+
+//@import "../generatedStyles/breaks.scss";

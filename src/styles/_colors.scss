@@ -1,0 +1,65 @@
+@import "./mixins.scss";
+
+$headerBackground: #e0ecfe;
+$headerBorder: #5d99ce;
+$menuText: #373d50;
+$menuCursor: #4491d4;
+$reverseLabelBackground: #2e79b9;
+$menuBorder: #333355;
+$menuHover: #478cf3;
+$mainPanelBackground: #d3e3f8;
+$inputBorder: #e3e8ec;
+$text: #425088;
+$subpanelBackground: #e8f0fd;
+$subSubpanelBackground: #f2f9ff;
+$green: #41b883;
+$greenDark: #009933;
+$tooltipBG: #e7e1cc;
+$topTooltipBG: #badaec;
+$boxShadow: 3px 5px 4px 0px #9b9b9bc2;
+$childBoxBackground: #f6f9ff;
+$boxLabelBackground: $headerBorder;
+$pageHeaderBackground: #b2d2ec;
+$iconBackground: #4e65ce;
+$navy: #050563;
+$blue: #3c56eb;
+$footerBG: #568cca;
+
+$buttonBackground: #538fc4;
+$buttonHoverBackground: #5e97c9;
+$buttonHoverColor: #CFFFFF;
+$buttonDisabledBackground: #538fc4;
+$buttonDisabledColor: #819abe;
+
+$red: #8a0101;
+
+$iconLine: #A7BFC4;
+$iconHover: #CFFFFF;
+$iconLineHover: #85a4aa;
+
+$level1: #e6f3ff;
+$level2: #e6f9ff;
+$level3: #fff8e6;
+$level4: white;
+$hoverStrokeColor: #8daae9;
+$scrollbarBG: #CFD8DC;
+$scrollbarThumbBG: #90A4AE;
+
+
+$headerHeight: 65px;
+$footerHeight: 75px;
+$padding: 15px;
+$dialogHeaderHeight: 24px;
+$pageHeaderLeftBarWidth: 28px;
+$scriptBoxWidth: 330px;
+$childBoxWidth: 220px;
+$scriptChildBoxWidth: 280px;
+$boxWidth: 425px;
+$boxSeparator: 25px;
+$pageHeaderHeight: 65px;
+$labelWidth: 90px;
+$dialogHeaderHeight: 24px;
+$pageHeaderLeftBarWidth: 28px;
+$headerHeight: 80px;
+$inputHeight: 26px;
+$largeIcon: 23px;

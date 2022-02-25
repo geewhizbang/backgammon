@@ -1,0 +1,17 @@
+@use "sass:math";
+
+$vw: 1800px;
+@function toVw($vw, $value) {
+  @return math.div($value, $vw) * 100vw;
+}
+
+@function toPx($fs, $value) {
+  @return round(math.div($fs * strip-unit($value) * 2), 2) * 1px;
+}
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return math.div($number, ($number * 0 + 1));
+  }
+  @return $number;
+}
